@@ -10,6 +10,8 @@ import UIKit
 
 class FrankenTableViewController: UITableViewController {
 
+    var wordCountDict: [String: Int] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +20,9 @@ class FrankenTableViewController: UITableViewController {
             let text = String(data: data, encoding: .utf8) {
             
             // here's your text
-            print(text)
+//            print(text)
+            countWords(data: (text), dict: wordCountDict)
+//            print(wordCountDict)
         }
     }
 
@@ -26,28 +30,45 @@ class FrankenTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func countWords(data: String, dict: Dictionary<String,Int>) {
+        let array = data.components(separatedBy: [" ", "\n", ".", ",", "'", "-" ])
+        var frequencyDict = dict
+        
+        for word in array {
+            if let oldFreq = frequencyDict[word] {
+                frequencyDict[word] = oldFreq + 1
+            } else {
+               frequencyDict[word] = 1
+            }
+//            wordCountDict = frequencyDict
+        }
+        wordCountDict = frequencyDict
+
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return wordCountDict.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        for (k,v) in wordCountDict {
+            print(k,v)
+//            cell.textLabel?.text = "\(k, v)"
+        }
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
