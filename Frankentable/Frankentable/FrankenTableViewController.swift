@@ -24,7 +24,7 @@ class FrankenTableViewController: UITableViewController {
     }
     
     func countWords(data: String) {
-        let dataArray = data.components(separatedBy: [" ", "\n", ".", ",", "'", "-", ])
+        let dataArray = data.components(separatedBy: [" ", "\n", ".", ",", "'", "-", ";" ])
         var frequencyDictionary = [String:Int]()
         for word in dataArray {
             if let oldFrequencyDictionary = frequencyDictionary[word] {
