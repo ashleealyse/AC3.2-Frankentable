@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Frankenstein: Word Frequency Table-->
         <scene sceneID="gTg-zI-UWI">
             <objects>
                 <tableViewController id="gLM-o7-5qh" customClass="FrankenTableViewController" customModule="Frankentable" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                             <outlet property="delegate" destination="gLM-o7-5qh" id="wcx-Kd-wcT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Bef-ci-n46"/>
+                    <navigationItem key="navigationItem" title="Frankenstein: Word Frequency Table" id="Bef-ci-n46"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vZx-oL-GLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
